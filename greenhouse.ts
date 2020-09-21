@@ -649,7 +649,7 @@ namespace greenhouse
     /**
     * Connect to AllThingsTalk IoT platform
     */
-    //% weight=91
+    //% weight=100
     //% group="ATT"
     //% blockId="connectToATT" block="CW01 connect to ATT with token %TKN and device-id %ID"
     export function connectToATT(TKN: string, ID: string): void {
