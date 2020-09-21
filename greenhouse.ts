@@ -862,7 +862,7 @@ namespace greenhouse
     /**
     * Connect to W-Fi 
     */
-    //% weight=91 color=#ad0303
+    //% weight=91
     //% group="Wifi-Common"
     //% blockId="connectToWifi" block="CW01 connect to WiFi SSID %SSID password %PSK"
     export function connectToWifi(SSID: string, PSK: string): void {
