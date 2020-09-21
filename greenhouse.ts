@@ -236,6 +236,10 @@ namespace greenhouse
 
     // SW01 function call end
 
+    // SH01 function call start
+    _readkey()
+    // SH01 function call end
+
     // SG33 function call start
 
      writereg(0xF4)
