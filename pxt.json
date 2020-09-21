@@ -40,8 +40,7 @@
         "microbit"
     ],
     "preferredEditor": "tsprj",
-	
-	"yotta": {
+    "yotta": {
         "config": {
             "microbit-dal": {
                 "bluetooth": {
