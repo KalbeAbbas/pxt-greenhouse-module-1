@@ -589,6 +589,7 @@ namespace greenhouse
      * Key Pressed Event
      */
     //% block="on %key Key Pressed"
+    //% group="SH01"
     export function onKeyPressed(key: SH01_KEY, body: () => void): void {
         startParallel(function () {
             while (true) {
@@ -610,6 +611,7 @@ namespace greenhouse
      * Key Released Event
      */
     //% block="on %key Key Released"
+    //% group="SH01"
     export function onKeyReleased(key: SH01_KEY, body: () => void): void {
         startParallel(function () {
             while (true) {
@@ -633,6 +635,7 @@ namespace greenhouse
      * If one key has been pressed.
      */
     //% block="%key has been pressed"
+    //% group="SH01"
     export function keypressed(key: SH01_KEY): boolean {
         return rk == key
     }
