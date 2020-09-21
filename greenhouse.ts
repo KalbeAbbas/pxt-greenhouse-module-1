@@ -1291,7 +1291,7 @@ namespace greenhouse
 
     function get_status(): boolean {
 
-        basic.pause(400)
+        basic.pause(1000)
         serial.writeString("AT+CIPRECVDATA=0,200" + cw01_vars.NEWLINE)
         basic.pause(300)
         cw01_vars.res = serial.readString()
