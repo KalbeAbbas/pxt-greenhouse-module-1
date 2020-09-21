@@ -674,7 +674,7 @@ namespace greenhouse
     /**
     * Send string data to AllThingsTalk IoT platform
     */
-    //% weight=91
+    //% weight=99
     //% group="ATT"
     //% blockId="IoTSendStringToATT" block="CW01 send string %value to ATT asset %asset"
     export function IoTSendStringToATT(value: string, asset: string): void {
@@ -726,7 +726,7 @@ namespace greenhouse
     /**
     * Send numerical data to AllThingsTalk IoT platform
     */
-    //% weight=91
+    //% weight=99
     //% group="ATT"
     //% blockId="IoTSendValueToATT" block="CW01 send value %value to ATT asset %asset"
     export function IoTSendValueToATT(value: number, asset: string): void {
@@ -777,7 +777,7 @@ namespace greenhouse
     /**
     * Send boolean data to AllThingsTalk IoT platform
     */
-    //% weight=91
+    //% weight=99
     //% group="ATT"
     //% blockId="IoTSendStateToATT" block="CW01 send state %state to ATT asset %asset_name"
     export function IoTSendStateToATT(state: boolean, asset: string): void {
@@ -839,7 +839,7 @@ namespace greenhouse
     /**
     * Send boolean data to AllThingsTalk IoT platform
     */
-    //% weight=91
+    //% weight=99
     //% group="ATT"
     //% blockId="IoTSendGPSToATT" block="CW01 send GPS latitude %lat and lonitude %lon to ATT asset %asset_name"
     export function IoTSendGPSToATT(lat: string, lon: string, asset_name: string): void {
@@ -893,7 +893,7 @@ namespace greenhouse
     /**
     * Get latest value of asset from AllThingsTalk IoT platform. Asset can be string, numerical and boolean
     */
-    //% weight=91
+    //% weight=98
     //% group="ATT"
     //% blockId="IoTgetATTAssetValue" block="CW01 get ATT asset %asset state"
     export function IoTgetATTAssetValue(asset: string): string {
@@ -960,7 +960,7 @@ namespace greenhouse
         /**
     * The function is a callback function. It executes block inside the function whenever commands from subscribed topic is received
     */
-    //% weight=91
+    //% weight=97
     //% group="ATT"
     //% block="CW01 on command received"
     //% blockId =onCommandReceived
@@ -1143,7 +1143,7 @@ namespace greenhouse
         /**
     * Subscribe to ATT asset
     */
-    //% weight=91
+    //% weight=97
     //% group="ATT"
     //% blockId="IoTATTSubscribe" block="CW01 subscribe to ATT asset command %asset"
     export function IoTATTSubscribe(asset: string): void {
