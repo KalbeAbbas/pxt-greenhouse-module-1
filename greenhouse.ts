@@ -1494,7 +1494,7 @@ namespace greenhouse
     /**
     * Enable feedback through microbit Matrix LEDs
     */
-    //% weight=91 color=#ad0303
+    //% weight=91
     //% group="Wifi-Common"
     //% blockId="enableFeedback" block="CW01 enable feedback LEDs %u"
     export function enableFeedback(u: boolean): void
