@@ -18,6 +18,25 @@ enum Measuremode {
     MODE_250MS = 0x40
 }
 
+enum SH01_KEY {
+    //% block="UP"
+    KEY_UP = 1,
+    //% block="DOWN"
+    KEY_DOWN = 8,
+    //% block="LEFT"
+    KEY_LEFT = 16,
+    //% block="RIGHT"
+    KEY_RIGHT = 32,
+    //% block="TRIANGLE"
+    KEY_TRIANGLE = 1,
+    //% block="NO"
+    KEY_NO = 8,
+    //% block="SQUARE"
+    KEY_SQUARE = 16,
+    //% block="CIRCLE"
+    KEY_CIRCLE = 32,
+}
+
 //% color=105 weight=100 icon="\uf299" block="Greenhouse kit"
 //% groups='["OD01", "SG33", "SL01", "SW01", "SH01", "SD CARD", "Wifi-Common", "ATT"]'
 namespace greenhouse
@@ -95,6 +114,20 @@ namespace greenhouse
     cw01_vars.start = true
 
     // CW01 Variables end
+
+    // SH01 Variables start
+
+    const CAP1296_I2C_ADDRESS = 40
+    const REG_MainControl = 0
+    const REG_InputStatus = 3
+    const _interval = 100
+
+    let KeyPressed: boolean[] = [false, false, false, false, false, false, false, false]
+    let KeyReleased: boolean[] = [true, true, true, true, true, true, true, true]
+    let buf = pins.createBuffer(2)
+    let rk: number = 0
+
+    // SH01 Variables end
 
     // OD01 variables start
 
@@ -538,6 +571,72 @@ namespace greenhouse
         meas_mode &= 0x0C;
         setreg(0x01, meas_mode | u, SG33_ADDR);
     }
+
+        // read touch key interval
+    function _readkey(): void {
+        startParallel(function () {
+            while (true) {
+                rk = getreg(REG_InputStatus, CAP1296_I2C_ADDRESS )
+                if (rk > 0) {
+                    setreg(REG_MainControl, 0, CAP1296_I2C_ADDRESS )
+                }
+                basic.pause(_interval)
+            }
+        })
+    }
+
+    /**
+     * Key Pressed Event
+     */
+    //% block="on %key Key Pressed"
+    export function onKeyPressed(key: SH01_KEY, body: () => void): void {
+        startParallel(function () {
+            while (true) {
+                if (rk <= 32) {
+                    if (rk == key) {
+                        if (KeyPressed[key >> 3] == false) {
+                            KeyPressed[key >> 3] = true
+                            body()
+                        }
+                    }
+                    else KeyPressed[key >> 3] = false
+                }
+                basic.pause(_interval)
+            }
+        })
+    }
+
+    /**
+     * Key Released Event
+     */
+    //% block="on %key Key Released"
+    export function onKeyReleased(key: SH01_KEY, body: () => void): void {
+        startParallel(function () {
+            while (true) {
+                if (rk <= 32) {
+                    if (rk == key) {
+                        KeyReleased[key >> 3] = false
+                    }
+                    else {
+                        if (KeyReleased[key >> 3] == false) {
+                            KeyReleased[key >> 3] = true
+                            body()
+                        }
+                    }
+                }
+                basic.pause(_interval)
+            }
+        })
+    }
+
+    /**
+     * If one key has been pressed.
+     */
+    //% block="%key has been pressed"
+    export function keypressed(key: SH01_KEY): boolean {
+        return rk == key
+    }
+
 
 
     /**
