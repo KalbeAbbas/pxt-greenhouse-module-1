@@ -18,6 +18,7 @@ namespace greenhouse
     function readVEML(addr: number): number {
         pins.i2cWriteNumber(0x10, addr, NumberFormat.UInt8LE, true)
         let rawData = pins.i2cReadNumber(0x10, NumberFormat.UInt16LE, false);
+        basic.showNumber(rawData)
         return rawData;
     }
 
