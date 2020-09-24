@@ -1,44 +1,5 @@
-enum USER {
-    //% block="INDUSTRIAL"
-    INDUSTRIAL = 1,
-    //% block="EDUCATIONAL"
-    EDUCATIONAL = 2
-}
-
-enum Measuremode {
-    //% block="IDLE"
-    MODE_IDLE = 0x00,
-    //% block="1SEC"
-    MODE_1SEC = 0x10,
-    //% block="10SEC"
-    MODE_10SEC = 0x20,
-    //% block="60SEC"
-    MODE_60SEC = 0x30,
-    //% block="250MS"
-    MODE_250MS = 0x40
-}
-
-enum SH01_KEY {
-    //% block="UP"
-    KEY_UP = 1,
-    //% block="DOWN"
-    KEY_DOWN = 8,
-    //% block="LEFT"
-    KEY_LEFT = 16,
-    //% block="RIGHT"
-    KEY_RIGHT = 32,
-    //% block="TRIANGLE"
-    KEY_TRIANGLE = 1,
-    //% block="NO"
-    KEY_NO = 8,
-    //% block="SQUARE"
-    KEY_SQUARE = 16,
-    //% block="CIRCLE"
-    KEY_CIRCLE = 32,
-}
-
 //% color=105 weight=100 icon="\uf299" block="Greenhouse kit"
-//% groups='["OD01", "SG33", "SL01", "SW01", "SH01", "SD CARD", "Wifi-Common", "ATT"]'
+//% groups='["OD01", "SG33", "SL01", "SW01", "SW07", "SH01", "SD CARD", "Wifi-Common", "ATT"]'
 namespace greenhouse
 {
     export enum SL01_L {
@@ -204,7 +165,6 @@ namespace greenhouse
 
         return getreg(0x2E);
     }
-
     function reset(): void {
         setreg(0x08, 0x00)
         setreg(0x09, 0x00)
@@ -332,6 +292,7 @@ namespace greenhouse
         if (v1) {
             init();
             val = fix(getUVIdata());
+
         }
 
         if (v2) {
