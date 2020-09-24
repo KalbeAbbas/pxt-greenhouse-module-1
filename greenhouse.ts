@@ -90,7 +90,7 @@ namespace greenhouse
     }
 
     /* reads raw uva data and calculates uva */
-    function getUVAdata(): number {
+    export function getUVAdata(): number {
         let rawUVA = readVEML(VEML6075_REG_UVA);
         let UVcomp1 = readVEML(VEML6075_REG_UVCOMP1);
         let UVcomp2 = readVEML(VEML6075_REG_UVCOMP2);
@@ -99,7 +99,7 @@ namespace greenhouse
     }
 
     /* reads raw uvb data and calculates uvb */
-    function getUVBdata(): number {
+    export function getUVBdata(): number {
         let rawUVB = readVEML(VEML6075_REG_UVB);
         let UVcomp1 = readVEML(VEML6075_REG_UVCOMP1);
         let UVcomp2 = readVEML(VEML6075_REG_UVCOMP2);
