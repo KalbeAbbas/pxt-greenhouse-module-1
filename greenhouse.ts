@@ -261,7 +261,7 @@ namespace greenhouse
     //% blockId="UVA" block="SL01 Ultraviolet A (mW/cm²)"
     //% group="Variables"
     //% weight=90 blockGap=8
-    function getUVA(): number {
+    export function getUVA(): number {
         if (v1) {
             init()
             return fix(getUVAdata());
@@ -275,7 +275,7 @@ namespace greenhouse
     //% blockId="UVB" block="SL01 Ultraviolet B (mW/cm²)"
     //% group="Variables"
     //% weight=90 blockGap=8
-    function getUVB(): number {
+    export function getUVB(): number {
         if (v1) {
             init()
             return fix(getUVBdata())
