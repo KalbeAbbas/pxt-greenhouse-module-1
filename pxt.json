@@ -1,6 +1,6 @@
 {
     "name": "pxt-greenhouse-module-1",
-    "version": "0.0.15",
+    "version": "0.0.24",
     "description": "",
     "dependencies": {
         "core": "*",
