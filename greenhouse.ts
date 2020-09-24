@@ -86,8 +86,6 @@ namespace greenhouse
     function readVEML(addr: number): number {
         pins.i2cWriteNumber(0x10, addr, NumberFormat.UInt8LE, true)
         let rawData = pins.i2cReadNumber(0x10, NumberFormat.UInt16LE, false);
-        basic.showString("VEML")
-        basic.showNumber(rawData)
         return rawData;
     }
 
@@ -255,12 +253,6 @@ namespace greenhouse
 
     checkID();
     if (v2) begin();
-
-    basic.showNumber(v1)
-
-    basic.showString("Hello!")
-
-    basic.showNumber(v2)
 
 	/**
 	* Ultraviolet A (mW/cm²)
